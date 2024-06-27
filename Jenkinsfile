@@ -20,7 +20,7 @@ pipeline {
 
         stage('Login to DockerHub') {
             steps {
-                withCredentials([string(credentialsId: 'test-dockerhubpassword', variable: 'dms-dockerhubpw')]) {
+                withCredentials([string(credentialsId: 'dms-dockerhubpw', variable: 'dms-dockerhubpw')]) {
                     bat 'docker login -u selani004 -p %dms-dockerhubpw%'
                 }
             }
