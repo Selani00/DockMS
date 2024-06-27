@@ -1,8 +1,6 @@
 pipeline {
     agent any
 
-    
-
     stages {
         stage('GIT Checkout') {
             steps {
@@ -12,15 +10,9 @@ pipeline {
 
         stage('Build Image') {
             steps {
-                dir('frontend_img') {
-                    script {
-                        bat "docker build -t selani004/dms-ci-frontend:%BUILD_NUMBER% ."
-                    }
-                }
-                dir('backend_img') {
-                    script {
-                        bat "docker build -t selani004/dms-ci-backend:%BUILD_NUMBER% ."
-                    }
+                script {
+                    bat "docker build -t selani004/frontend_img:${env.BUILD_NUMBER} ."
+                    bat "docker build -t selani004/backend_img:${env.BUILD_NUMBER} ."
                 }
             }
         }
@@ -31,21 +23,23 @@ pipeline {
                     bat 'docker login -u selani004 -p %dms-dockerhubpw%'
                 }
             }
-        }
-
-        
+        }  
 
         stage('Docker Image Push') {
             steps {
-                bat "docker push selani004/dms-ci-frontend:%BUILD_NUMBER%"
-                bat "docker push selani004/dms-ci-backend:%BUILD_NUMBER%"
+                script {
+                    bat "docker push selani004/frontend_img:${env.BUILD_NUMBER}"
+                    bat "docker push selani004/backend_img:${env.BUILD_NUMBER}"
+                }
             }
         }
 
         stage('Cleanup Local Images') {
             steps {
-                bat "docker rmi selani004/dms-ci-frontend:%BUILD_NUMBER%"
-                bat "docker rmi selani004/dms-ci-backend:v%BUILD_NUMBER%"
+                script {
+                    bat "docker rmi selani004/frontend_img:${env.BUILD_NUMBER}"
+                    bat "docker rmi selani004/backend_img:${env.BUILD_NUMBER}"
+                }
             }
         }
     }
