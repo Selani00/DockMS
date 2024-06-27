@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-    environment {
-        
-        DOCKER_USERNAME = "selani004"
-    }
+    
 
     stages {
         stage('GIT Checkout') {
@@ -17,12 +14,12 @@ pipeline {
             steps {
                 dir('frontend_img') {
                     script {
-                        bat "docker build -t ${DOCKER_USERNAME}/dms-ci-frontend:%BUILD_NUMBER% ."
+                        bat "docker build -t selani004/dms-ci-frontend:%BUILD_NUMBER% ."
                     }
                 }
                 dir('backend_img') {
                     script {
-                        bat "docker build -t ${DOCKER_USERNAME}/dms-ci-backend:%BUILD_NUMBER% ."
+                        bat "docker build -t selani004/dms-ci-backend:%BUILD_NUMBER% ."
                     }
                 }
             }
@@ -40,15 +37,15 @@ pipeline {
 
         stage('Docker Image Push') {
             steps {
-                bat "docker push ${DOCKER_USERNAME}/dms-ci-frontend:%BUILD_NUMBER%"
-                bat "docker push ${DOCKER_USERNAME}/dms-ci-backend:%BUILD_NUMBER%"
+                bat "docker push selani004/dms-ci-frontend:%BUILD_NUMBER%"
+                bat "docker push selani004/dms-ci-backend:%BUILD_NUMBER%"
             }
         }
 
         stage('Cleanup Local Images') {
             steps {
-                bat "docker rmi ${DOCKER_USERNAME}/dms-ci-frontend:%BUILD_NUMBER%"
-                bat "docker rmi ${DOCKER_USERNAME}/dms-ci-backend:v%BUILD_NUMBER%"
+                bat "docker rmi selani004/dms-ci-frontend:%BUILD_NUMBER%"
+                bat "docker rmi selani004/dms-ci-backend:v%BUILD_NUMBER%"
             }
         }
     }
