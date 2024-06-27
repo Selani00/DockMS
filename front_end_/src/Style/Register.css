@@ -1,0 +1,75 @@
+.hero-section3 {
+  background-image: url(../img/Registration.png); 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 100px 0 20px;
+  height: 588px;
+}
+
+
+
+.hero-section3>.registration-container {
+  background: rgba(255, 255, 255, 0.8); /* Background with 80% transparency */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 600px;
+  height: 430px;
+  margin-top: 80px;
+  margin-left: 430px;
+
+}
+
+.hero-section3>.registration-container  h1 {
+  margin-bottom: 20px;
+}
+
+.hero-section3>.registration-container  h4 {
+  margin-bottom: 5px;
+}
+
+.hero-section3>.registration-container  p {
+  
+  margin-bottom: 40px;
+  font-size: 13px;
+  text-align: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.hero-section3>.registration-container>.registration-form>.form-group {
+  margin: 10px 0;
+}
+
+
+
+.hero-section3>.registration-container>.registration-form>.form-group input {
+  width:400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.hero-section3>.registration-container>.registration-form button {
+  width: 100px;
+  padding: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hero-section3>.registration-container>.registration-form button:hover {
+  background-color: #0056b3;
+}
+
+
+
+

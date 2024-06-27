@@ -1,0 +1,70 @@
+.hero-section {
+  background-image: url(../img/Home_text.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 100px 0 20px;
+  height: 588px;
+}
+
+.hero-section>.text-wrapping{
+  background-color: transparent;
+  height: 400px;
+  width: 1400px;
+  margin-top: 100px;
+
+}
+
+.hero-section > .text-wrapping>.top-heading {
+  font-size: 30px;
+  color: lightgray;
+  margin-left: 600px;
+  font-family: 'Young Serif', serif;
+}
+
+.hero-section >.text-wrapping> .bottom-heading {
+  font-size: 20px;
+  color: lightgray;
+  margin-left: 500px;
+  font-family: 'Poppins', sans-serif;
+ 
+}
+
+.hero-section >.text-wrapping> .Para {
+  color: lightgray;
+  margin-left: 400px;
+  width: 650px;
+  text-align: center; 
+  font-family: 'Roboto Slab', serif; 
+}
+
+.hero-section >.text-wrapping> .button-home button {
+  background-color: transparent;
+  color: lightgray;
+  border-color: lightgray;
+  margin-left: 650px;
+  margin-top: 50px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+.hero-section >.text-wrapping> .button-home button:hover {
+  background-color: white;
+  border-color: black;
+  letter-spacing: 2px;
+  color: black;
+  transition: 0.5s;
+}
+
+

@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+
+
+  backend:
+    image: backend_img
+    build: ./backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    networks:
+      - dms-app
+    
+
+  frontend:
+    image: frontend_img
+    build: ./front_end_
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    stdin_open: true
+    networks:
+      - dms-app
+    
+      
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    networks:
+      - dms-app   
+    volumes:
+      - mongo-data:/data/db
+
+networks:
+  dms-app:
+    driver: bridge
+
+
+
+volumes:
+  mongo-data:
+    driver: local
