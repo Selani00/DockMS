@@ -10,9 +10,10 @@ pipeline {
 
         stage('Build Image') {
             steps {
+                
                 script {
-                    bat "docker build -t selani004/frontend_img:${env.BUILD_NUMBER} ."
-                    bat "docker build -t selani004/backend_img:${env.BUILD_NUMBER} ."
+                    bat "docker build -t selani004/frontend_img:${env.BUILD_NUMBER} -f front_end_/Dockerfile front_end_"
+                    bat "docker build -t selani004/backend_img:${env.BUILD_NUMBER} -f backend/Dockerfile backend"
                 }
             }
         }
@@ -23,7 +24,7 @@ pipeline {
                     bat 'docker login -u selani004 -p %dms-dockerhubpw%'
                 }
             }
-        }  
+        }
 
         stage('Docker Image Push') {
             steps {
