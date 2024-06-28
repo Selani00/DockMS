@@ -37,17 +37,18 @@ pipeline {
             }
         }
 
-         stage('Stop and Remove Existing Containers') {
+        stage('Stop and Remove Existing Containers') {
             steps {
                 script {
-                    bat 'docker-compose down || true'
-                    bat 'docker stop $(docker ps -a -q --filter ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_FRONTEND}:${BUILD_NUMBER}) || true'
-                    bat 'docker rm $(docker ps -a -q --filter ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_FRONTEND}:${BUILD_NUMBER}) || true'
-                    bat 'docker stop $(docker ps -a -q --filter ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_BACKEND}:${BUILD_NUMBER}) || true'
-                    bat 'docker rm $(docker ps -a -q --filter ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_BACKEND}:${BUILD_NUMBER}) || true'
-                }
+                        bat 'docker-compose down'
+                        bat 'for /f "tokens=*" %i in (\'docker ps -a -q --filter "ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_FRONTEND}:${BUILD_NUMBER}"\') do docker stop %i || true'
+                        bat 'for /f "tokens=*" %i in (\'docker ps -a -q --filter "ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_FRONTEND}:${BUILD_NUMBER}"\') do docker rm %i || true'
+                        bat 'for /f "tokens=*" %i in (\'docker ps -a -q --filter "ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_BACKEND}:${BUILD_NUMBER}"\') do docker stop %i || true'
+                        bat 'for /f "tokens=*" %i in (\'docker ps -a -q --filter "ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_BACKEND}:${BUILD_NUMBER}"\') do docker rm %i || true'
+                    }
             }
         }
+
 
         
 
