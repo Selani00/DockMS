@@ -41,10 +41,7 @@ pipeline {
             steps {
                 script {
                         bat 'docker-compose down'
-                        bat 'for /f "tokens=*" %i in (\'docker ps -a -q --filter "ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_FRONTEND}:${BUILD_NUMBER}"\') do docker stop %i || true'
-                        bat 'for /f "tokens=*" %i in (\'docker ps -a -q --filter "ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_FRONTEND}:${BUILD_NUMBER}"\') do docker rm %i || true'
-                        bat 'for /f "tokens=*" %i in (\'docker ps -a -q --filter "ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_BACKEND}:${BUILD_NUMBER}"\') do docker stop %i || true'
-                        bat 'for /f "tokens=*" %i in (\'docker ps -a -q --filter "ancestor=${DOCKER_USERNAME}/${DOCKER_IMAGE_BACKEND}:${BUILD_NUMBER}"\') do docker rm %i || true'
+                        bat 'docker rm -f backend frontend mongo || true'
                     }
             }
         }
