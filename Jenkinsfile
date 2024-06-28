@@ -65,7 +65,9 @@ pipeline {
                           - mongo
                         networks:
                           - dms-app
-
+                        environment:
+                            - MONGO_URI=mongodb+srv://pkselani00:5xMdbTLcgsHOPAhq@auth-token.82ymrbc.mongodb.net/auth-token?retryWrites=true&w=majority&appName=auth-token
+ 
                       frontend:
                         image: ${DOCKER_USERNAME}/${DOCKER_IMAGE_FRONTEND}:${BUILD_NUMBER}
                         container_name: frontend

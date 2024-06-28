@@ -13,6 +13,8 @@ services:
       - mongo
     networks:
       - dms-app
+    environment:
+      - MONGO_URI=mongodb+srv://pkselani00:5xMdbTLcgsHOPAhq@auth-token.82ymrbc.mongodb.net/auth-token?retryWrites=true&w=majority&appName=auth-token
     
 
   frontend:
