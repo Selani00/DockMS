@@ -22,7 +22,7 @@ app.use('/api/user', authRouter);
 
 
 mongoose
-  .connect(process.env.MONGO)
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to database!!");
   })
