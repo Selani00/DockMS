@@ -22,7 +22,7 @@ services:
     build: ./front_end_
     container_name: frontend
     ports:
-      - "3000:3000"
+      - "80:3000"
     depends_on:
       - backend
     stdin_open: true

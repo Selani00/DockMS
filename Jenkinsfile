@@ -72,7 +72,7 @@ pipeline {
                         image: ${DOCKER_USERNAME}/${DOCKER_IMAGE_FRONTEND}:${BUILD_NUMBER}
                         container_name: frontend
                         ports:
-                          - "3000:3000"
+                          - "80:3000"
                         depends_on:
                           - backend
                         stdin_open: true
