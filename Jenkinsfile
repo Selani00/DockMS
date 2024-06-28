@@ -37,6 +37,16 @@ pipeline {
             }
         }
 
+        stage('Stop and Remove Existing Containers') {
+            steps {
+                script {
+                        bat 'docker-compose down'
+                        bat 'docker rm -f backend frontend mongo || true'
+                    }
+            }
+        }
+
+
         
 
         stage('Deploy with Docker Compose') {
