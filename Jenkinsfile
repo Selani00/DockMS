@@ -103,8 +103,8 @@ pipeline {
         stage('Cleanup Local Images') {
             steps {
                 script {
-                    bat "docker rmi ${DOCKER_USERNAME}/dms-ci-frontend:${BUILD_NUMBER}"
-                    bat "docker rmi ${DOCKER_USERNAME}/dms-ci-backend:${BUILD_NUMBER}"
+                    bat "docker rmi ${DOCKER_USERNAME}/${DOCKER_IMAGE_FRONTEND}:${BUILD_NUMBER}"
+                    bat "docker rmi ${DOCKER_USERNAME}/${DOCKER_IMAGE_BACKEND}:${BUILD_NUMBER}"
                 }
             }
         }
