@@ -13,7 +13,7 @@ const Home = () => {
             <h1>Welcome</h1>
           </div>
           <div className="bottom-heading">
-            <h2>Document Management System</h2>
+            <h2>Document Management System Test</h2>
           </div>
           <div className="Para">
             <p>
