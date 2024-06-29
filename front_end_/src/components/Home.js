@@ -10,10 +10,10 @@ const Home = () => {
       <div className="hero-section">
         <div className="text-wrapping">
           <div className="top-heading">
-            <h1>Welcome fdvsdf</h1>
+            <h1>Welcome</h1>
           </div>
           <div className="bottom-heading">
-            <h2>Document Management System Test</h2>
+            <h2>Document Management System</h2>
           </div>
           <div className="Para">
             <p>
